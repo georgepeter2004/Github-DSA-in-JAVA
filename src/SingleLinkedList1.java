@@ -44,12 +44,16 @@ public class SingleLinkedList1 {
 
     }
     public void deleteAtEnd(){
+        if(head==null){
+            throw new IndexOutOfBoundsException("Deletion on empty List");
+        }
         Node1 temp = head;
         Node1 prev = null;
-        for(int i=1;temp!=null;i++) {
+        while(temp.next !=null){
+            prev = temp;
             temp = temp.next;
         }
-        temp = null;
+         prev.next = null ;
     }
     public void display() {
         Node1 temp = head;
@@ -58,6 +62,28 @@ public class SingleLinkedList1 {
             temp = temp.next;
         }
 
+    }
+
+    public void insertAtEnd(int val){
+        if(head==null){
+
+        }
+        Node1 newNode = new Node1(val);
+        Node1 temp = head;
+        Node1 prev = head;
+        while(temp != null){
+            prev = temp;
+            temp = temp.next;
+        }
+        prev.next = newNode;
+
+    }
+    public void search(int val){
+        Node1 temp = head;
+        for(int i=1;temp!=null;i++){
+            temp=temp.next;
+
+        }
     }
 
 }

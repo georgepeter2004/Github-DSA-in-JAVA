@@ -14,9 +14,16 @@ public class SLLDemo {
         list1.insertAtBeginning(3);
         list1.insertAtBeginning(2);
         list1.display();
-        list1.deleteAtEnd();
         System.out.println();
+        list1.deleteAtEnd();
         list1.display();
+        System.out.println();
+        list1.insertAtEnd(4);
+        list1.display();
+        System.out.println();
+        list1.insertAtEnd(99);
+        list1.display();
+
 
 
     }
