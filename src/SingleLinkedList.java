@@ -1,19 +1,20 @@
 
 
 
+class Node {
+    int data;
+    Node next;
+
+    Node(int val) {
+        data = val;
+        next = null;
+    }
+}
 
 public class SingleLinkedList
 {
     Node head;
-    class Node {
-        int data;
-        Node next;
 
-        Node(int val) {
-            data = val;
-            next = null;
-        }
-    }
 
         SingleLinkedList() {
             head = null;
@@ -31,10 +32,15 @@ public class SingleLinkedList
         }
 
         public void insertAtPos(int pos,int val){
+            if(pos==0){
+                insertAtBeginning(val);
+                return;
+            }
         Node Newnode = new Node(val);
         Node temp = head;
         for(int i=1;i<pos;i++){
             temp = temp.next;
+            if(temp==null) throw new IndexOutOfBoundsException("Invalid Position :"+pos);
         }
             Newnode.next = temp.next;
             temp.next = Newnode;
@@ -48,6 +54,30 @@ public class SingleLinkedList
                 temp = temp.next;
             }
 
+        }
+        public void deleteAtPos(int pos){
+        if(head==null){
+            throw new IndexOutOfBoundsException("Deletion on empty List");
+        }
+        if(pos==0){
+            deleteAtBeg();
+            return;
+        }
+        Node temp = head;
+        Node prev = null;
+        for(int i = 1;i<=pos;i++){
+            prev = temp;
+            temp = temp.next;
+        }
+        prev.next = temp.next;
+
+        }
+
+        public void deleteAtBeg(){
+            if(head==null){
+                throw new IndexOutOfBoundsException("Deletion on empty List");
+            }
+        head = head.next;
         }
 
 
