@@ -1,6 +1,6 @@
 import java.util.*;
 class DynamicArrayfunction{
-    static final int initvalue=8;
+    static final int initvalue=3;
     private int arr[];
     private int size,capacity;
 
