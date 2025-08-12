@@ -1,18 +1,24 @@
-class Node1{
-    int data;
-    Node1 next;
 
-    Node1(int val){
-        data = val;
-        next = null;
+public class SingleLinkedList1<T> {
+
+
+    class Node1{
+        T data;
+        Node1 next;
+
+        Node1(T val){
+            data = val;
+            next = null;
+        }
     }
-}
-public class SingleLinkedList1 {
+
+
+
     Node1 head;
     SingleLinkedList1(){
         head = null;
     }
-    public void insertAtBeginning(int val){
+    public void insertAtBeginning(T val){
         Node1 newNode = new Node1(val);
         if(head==null){
             head = newNode;
@@ -27,9 +33,9 @@ public class SingleLinkedList1 {
         for(int i = 1;i<=pos;i++){
             temp = temp.next;
         }
-        System.out.println(temp.data+" ");
+        System.out.print(temp.data+" ");
     }
-    public void update(int pos,int val){
+    public void update(int pos,T val){
         Node1 temp = head;
         Node1 prev = null;
         Node1 newNode = new Node1(val);
@@ -64,7 +70,7 @@ public class SingleLinkedList1 {
 
     }
 
-    public void insertAtEnd(int val){
+    public void insertAtEnd(T val){
         if(head==null){
             throw new IndexOutOfBoundsException("Inserting element in empty list");
         }
@@ -78,7 +84,7 @@ public class SingleLinkedList1 {
         prev.next = newNode;
 
     }
-    public void search(int val){
+    public void search(T val){
         if(head==null){
             throw new IndexOutOfBoundsException("Searching element in empty list");
         }
@@ -93,7 +99,7 @@ public class SingleLinkedList1 {
         }
     }
 
-    public void contains(int val){
+    public void contains(T val){
         if(head==null){
             throw new IndexOutOfBoundsException("Searching element in empty list");
         }
