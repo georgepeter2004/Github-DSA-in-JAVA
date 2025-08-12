@@ -66,7 +66,7 @@ public class SingleLinkedList1 {
 
     public void insertAtEnd(int val){
         if(head==null){
-
+            throw new IndexOutOfBoundsException("Inserting element in empty list");
         }
         Node1 newNode = new Node1(val);
         Node1 temp = head;
@@ -79,11 +79,29 @@ public class SingleLinkedList1 {
 
     }
     public void search(int val){
+        Node1 newNode = new Node1(val);
         Node1 temp = head;
-        for(int i=1;temp!=null;i++){
-            temp=temp.next;
 
+        for(int i=0;temp!=null;i++){
+            if(temp.data==newNode.data){
+                System.out.print(i+" ");
+                return ;
+            }
+            temp=temp.next;
         }
+    }
+
+    public void contains(int val){
+        Node1 newNode = new Node1(val);
+        Node1 temp = head;
+        for(int i=0;temp!=null;i++){
+            if(temp.data==newNode.data){
+                System.out.println(true);
+                return;
+            }
+            temp=temp.next;
+        }
+        System.out.println(false);
     }
 
 }
