@@ -79,9 +79,11 @@ public class SingleLinkedList1 {
 
     }
     public void search(int val){
+        if(head==null){
+            throw new IndexOutOfBoundsException("Searching element in empty list");
+        }
         Node1 newNode = new Node1(val);
         Node1 temp = head;
-
         for(int i=0;temp!=null;i++){
             if(temp.data==newNode.data){
                 System.out.print(i+" ");
@@ -92,6 +94,9 @@ public class SingleLinkedList1 {
     }
 
     public void contains(int val){
+        if(head==null){
+            throw new IndexOutOfBoundsException("Searching element in empty list");
+        }
         Node1 newNode = new Node1(val);
         Node1 temp = head;
         for(int i=0;temp!=null;i++){
