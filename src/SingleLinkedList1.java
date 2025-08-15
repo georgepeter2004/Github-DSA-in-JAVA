@@ -1,5 +1,9 @@
+import java.util.Iterator;
 
-public class SingleLinkedList1<T> {
+
+
+
+public class SingleLinkedList1<T> implements Iterable<T> {
 
 
     class Node1{
@@ -113,6 +117,24 @@ public class SingleLinkedList1<T> {
             temp=temp.next;
         }
         System.out.println(false);
+    }
+
+
+    public Iterator<T> iterator(){
+        return new Iterator<T>(){
+            Node1 temp = head;
+
+            public boolean hasNext() {
+                return temp!=null;
+            }
+
+            public T next() {
+                T val= temp.data;
+                temp=temp.next;
+                return val;
+            }
+        };
+
     }
 
 }

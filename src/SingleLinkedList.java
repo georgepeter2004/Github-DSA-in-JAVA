@@ -16,8 +16,8 @@ public class SingleLinkedList
     Node head;
 
 
-        SingleLinkedList() {
-            head = null;
+    SingleLinkedList() {
+        head = null;
         }
 
         public void insertAtBeginning(int val) {
@@ -36,20 +36,23 @@ public class SingleLinkedList
                 insertAtBeginning(val);
                 return;
             }
-        Node Newnode = new Node(val);
-        Node temp = head;
-        for(int i=1;i<pos;i++){
-            temp = temp.next;
-            if(temp==null) throw new IndexOutOfBoundsException("Invalid Position :"+pos);
-        }
+            Node Newnode = new Node(val);
+            Node temp = head;
+            for(int i=1;i<pos;i++)
+            {
+               temp = temp.next;
+               if(temp==null) throw new IndexOutOfBoundsException("Invalid Position :"+pos);
+            }
             Newnode.next = temp.next;
             temp.next = Newnode;
 
         }
 
-        public void display() {
+        public void display()
+        {
             Node temp = head;
-            while(temp != null){
+            while(temp != null)
+            {
                 System.out.print(temp.data+" ");
                 temp = temp.next;
             }
@@ -78,6 +81,21 @@ public class SingleLinkedList
                 throw new IndexOutOfBoundsException("Deletion on empty List");
             }
         head = head.next;
+        }
+
+
+        public void reverse(){
+            Node prev = null;
+            Node current = head;
+            Node next = head.next;
+
+            while(current != null){
+                next = current.next;
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+            head = prev;
         }
 
 
