@@ -97,7 +97,7 @@ public class DoublyLL
         if(pos==0){
             head = head.next;
             if(head == null)
-                tail =null;
+                tail = null;
 
             else
                 head.prev = null;
@@ -125,27 +125,13 @@ public class DoublyLL
         }
         head = head.next;
         if(head == null)
-            tail =null;
+            tail = null;
 
         else
             head.prev = null;
         return;
     }
 
-
-    public void reverse(){
-        Node3 prev = null;
-        Node3 current = head;
-        Node3 next = head.next;
-
-        while(current != null){
-            next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
-        }
-        head = prev;
-    }
 
 
 }
