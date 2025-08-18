@@ -133,6 +133,19 @@ public class DoublyLL
     }
 
 
+    public void reverse(){
+        Node3 prev = null;
+        Node3 current = head;
+        Node3 next = head.next;
+
+        while(current != null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+    }
 
 
 }
