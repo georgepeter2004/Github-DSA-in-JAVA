@@ -13,6 +13,9 @@ public class SLLDemo {
         list.display();
         System.out.println();
 
+        boolean res = list.Loop();
+        System.out.println(res);
+
         list.reverse();
         list.display();
 

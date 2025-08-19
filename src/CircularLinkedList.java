@@ -71,6 +71,24 @@ public class CircularLinkedList<T> {
         do{
             System.out.print(temp.data+" ");
             temp=temp.next;
-        }while(temp != last.next);
+        }while(temp != last.next );
     }
+
+    public boolean Loop() {
+        Node slow = last.next;
+        Node fast = last.next;
+
+        while(slow != null && fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
 }
