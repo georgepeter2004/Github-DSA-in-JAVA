@@ -20,7 +20,6 @@ public void add(int val) {
     private void expandArray(){
         capacity *= 2;
        arr = java.util.Arrays.copyOf(arr,capacity);
-
 }
 
 public void Display(){
@@ -221,6 +220,7 @@ public class DynamicArray {
                     val = sc.nextInt();
                     list.search(val);
                     break;
+
                 case 12 :
                     System.out.print("Enter the Value: ");
                     val = sc.nextInt();
