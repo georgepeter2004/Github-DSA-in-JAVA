@@ -14,10 +14,6 @@ public class BinarySearchTree {
         root = new Node(key);
     }
 
-    BinarySearchTree(){
-        root = null;
-    }
-
     public void insert(int val){
         insert(root,val);
     }
