@@ -45,11 +45,102 @@ public class Sorting {
         System.out.println(Arrays.toString(arr));
     }
 
+    public static int[] mergeSort(int[] arr){
+        int mid = arr.length/2;
+
+        if(arr.length==1) return arr;
+
+        int[] left = mergeSort(Arrays.copyOfRange(arr,0,mid));
+        int[] right = mergeSort(Arrays.copyOfRange(arr,mid,arr.length));
+
+        return merge(left,right);
+    }
+
+    public static int[] merge(int[] first,int[] second){
+       int[] joined = new int[first.length+second.length];
+       int i=0,j=0,k=0;
+       while(i<first.length && j<second.length){
+           if(first[i]>second[j]){
+               joined[k++]=second[j++];
+           }
+           else{
+               joined[k++] = first[i++];
+           }
+       }
+
+       while(i< first.length)  joined[k++]=first[i++];
+       while(j< second.length)  joined[k++]=second[j++];
+
+        return joined;
+    }
+
+    public static void mergeSortinPlace(int[] arr,int start,int end){
+
+        int mid = (start+end)/2;
+
+        if(end-start==1) return;
+
+        mergeSortinPlace(arr,start,mid);
+        mergeSortinPlace(arr,mid,end);
+
+        mergeInplace(arr,start,mid,end);
+    }
+
+
+
+    public static void mergeInplace(int[] arr,int start,int mid,int end){
+        int[] joined = new int[end-start];
+        int i=start,j=mid,k=0;
+        while(i<mid && j<end){
+            if(arr[i]<arr[j]){
+                joined[k++]=arr[i++];
+            }
+            else{
+                joined[k++] = arr[j++];
+            }
+        }
+
+        while(i<mid)  joined[k++]=arr[i++];
+        while(j<end)  joined[k++]=arr[j++];
+
+        for(k=0;k<joined.length;k++){
+            arr[start+k]=joined[k];
+        }
+    }
+
+    public static void quickSort(int[] arr,int low,int high){
+        if(low>=high) return;
+
+        int start = low,end = high,mid=(start+end)/2,pivot = arr[mid];
+
+        while(start<=end){
+            while(arr[start]<pivot) start++;
+
+            while(arr[end]>pivot) end--;
+
+            if(start<=end){
+                int temp = arr[start];
+                arr[start++]=arr[end];
+                arr[end--]=temp;
+            }
+
+            quickSort(arr,low,end);
+            quickSort(arr,start,high);
+        }
+
+    }
+
+
 
     public static void main(String[] args) {
         int arr[] = {5,48,2,34,7,76};
-        Selectionsort(arr);
+        /*Selectionsort(arr);
         Bubblesort(arr);
         Insertionsort(arr);
+        int[] result = mergeSort(arr);
+        mergeSortinPlace(arr,0, arr.length);
+        System.out.println(Arrays.toString(arr));*/
+        quickSort(arr,0,arr.length-1);
+        System.out.println(Arrays.toString(arr));
     }
 }
