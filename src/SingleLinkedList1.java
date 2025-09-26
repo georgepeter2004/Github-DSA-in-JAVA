@@ -131,7 +131,7 @@ public class SingleLinkedList1<T> implements Iterable<T> {
             public T next() {
                 T val= temp.data;
                 temp=temp.next;
-                return val;
+                return val; 
             }
         };
 
